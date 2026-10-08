@@ -43,13 +43,6 @@ void findSolution(
     }
 }
 
-string print(const string& number)
-{
-    return "(" + number.substr(0, 2) + ")"
-         + number.substr(2, 2)
-         + "(" + number.substr(4, 2) + ")";
-}
-
 int main()
 {
     vector<pair<string, bool>> numbers;
@@ -100,9 +93,14 @@ int main()
 
     cout << "BEST COMBINATION (size: "
          << solution.size() << "):\n";
+    
+    cout << numbers[solution[0]].first;
 
     for (int index : solution)
-        cout << print(numbers[index].first) << '\n';
+        if(index != 0)
+        cout << numbers[index].first.substr(2);
+
+    cin;
 
     return 0;
 }
